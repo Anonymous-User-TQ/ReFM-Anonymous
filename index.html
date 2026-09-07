@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="title" content="ReFM — Retargeting with Energy Flow and Motion Semantics">
+  <meta name="description" content="ReFM is a source-mesh-agnostic framework for semantically faithful, penetration-aware motion retargeting.">
+  <meta name="keywords" content="motion retargeting, character animation, motion semantics, energy-guided flow, 3D vision">
+  <meta name="author" content="ReFM Project">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ReFM — Retargeting with Energy Flow and Motion Semantics">
+  <meta property="og:description" content="Source-mesh-agnostic motion retargeting with energy flow and motion semantics.">
+  <meta name="theme-color" content="#1c305a">
+  <title>ReFM — Retargeting with Energy Flow and Motion Semantics</title>
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  <link rel="preload" href="static/css/fontawesome.all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="static/css/fontawesome.all.min.css"></noscript>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --ink:#10213f; --blue:#276ef1; --cyan:#36d6c5; --mist:#f4f8ff; --line:#dce5f2; }
+    html { scroll-behavior:smooth; }
+    body { color:var(--ink); font-family:Inter, sans-serif; }
+    .refm-hero { background:radial-gradient(circle at 20% 15%, #294f92 0, #182f59 32%, #0c1932 80%); color:#fff; overflow:hidden; position:relative; }
+    .refm-hero::after { content:""; width:700px; height:700px; border:1px solid rgba(54,214,197,.23); border-radius:50%; position:absolute; right:-235px; top:-325px; box-shadow:0 0 0 70px rgba(54,214,197,.04),0 0 0 140px rgba(54,214,197,.025); }
+    .hero-body { padding:6.5rem 1.5rem 5.5rem; position:relative; z-index:1; }
+    .project-mark { color:var(--cyan); font:500 .79rem "DM Mono", monospace; letter-spacing:.14em; text-transform:uppercase; }
+    .publication-title { color:#fff!important; font-size:clamp(3rem,7vw,6.25rem)!important; letter-spacing:-.075em; margin:.25rem 0 .65rem!important; }
+    .hero-subtitle { color:#d8e5fb; font-size:1.28rem; line-height:1.6; max-width:770px; margin:0 auto 2rem; }
+    .hero-subtitle strong { color:var(--cyan); font-weight:600; }
+    .button.is-refm { background:var(--cyan); border-color:transparent; color:#10213f; font-weight:700; }
+    .button.is-refm:hover { background:#7ff5e8; color:#10213f; }
+    .button.is-ghost-light { background:transparent; border:1px solid rgba(255,255,255,.42); color:#fff; font-weight:600; }
+    .button.is-ghost-light:hover { background:rgba(255,255,255,.12); color:#fff; }
+    .media-placeholder { align-items:center; background:linear-gradient(135deg,#e9f2ff,#f9fcff); border:1px dashed #9bb5d7; color:#547093; display:flex; flex-direction:column; justify-content:center; min-height:330px; padding:2rem; text-align:center; }
+    .media-placeholder.dark { background:linear-gradient(135deg,#12284d,#1b3765); border-color:#5d7da7; color:#cfddf1; }
+    .media-placeholder .icon { color:#276ef1; font-size:2.2rem; margin-bottom:1rem; }
+    .section { padding:5rem 1.5rem; }
+    .section-title { color:var(--ink); font-size:2rem; font-weight:750; letter-spacing:-.045em; margin-bottom:1rem; }
+    .eyebrow { color:#276ef1; font:500 .75rem "DM Mono", monospace; letter-spacing:.1em; text-transform:uppercase; }
+    .abstract { font-size:1.08rem; line-height:1.8; }
+    .contribution { border-top:1px solid var(--line); padding:1.3rem 0; }
+    .contribution:first-of-type { margin-top:1.5rem; }
+    .contribution-number { color:#276ef1; font:500 .85rem "DM Mono", monospace; }
+    .pipeline { background:var(--mist); }
+    .stage { background:#fff; border:1px solid var(--line); border-radius:12px; height:100%; padding:1.6rem; }
+    .stage-index { align-items:center; background:#dffaf6; border-radius:50%; color:#087b70; display:flex; font:500 .76rem "DM Mono", monospace; height:32px; justify-content:center; margin-bottom:1rem; width:32px; }
+    .stage h3 { font-size:1.1rem; font-weight:700; margin-bottom:.55rem; }
+    .arrow { color:#78a0d6; font-size:1.4rem; padding-top:4.5rem; text-align:center; }
+    .results-card { border:1px solid var(--line); border-radius:12px; box-shadow:none; overflow:hidden; }
+    .results-card .card-content { padding:1.5rem; }
+    .metric { color:#276ef1; font-size:2rem; font-weight:800; letter-spacing:-.06em; }
+    .metric-label { color:#557093; font-size:.78rem; font-weight:600; text-transform:uppercase; }
+    .result-note { color:#5b6d86; font-size:.88rem; line-height:1.55; }
+    .method-tag { background:#e6efff; color:#28518b; font-weight:600; }
+    .table-wrap { overflow-x:auto; }
+    table td, table th { border-color:var(--line)!important; padding:.8rem .6rem!important; white-space:nowrap; }
+    table thead th { color:#58708f; font-size:.75rem; letter-spacing:.04em; text-transform:uppercase; }
+    tr.refm-row { background:#effcf9; }
+    tr.refm-row td:first-child { color:#087b70; font-weight:700; }
+    .dataset-strip { background:#10213f; color:#fff; }
+    .dataset-strip .section-title { color:#fff; }
+    .dataset-stat { border-left:1px solid rgba(255,255,255,.2); padding:0 1.5rem; }
+    .dataset-stat:first-child { border-left:0; }
+    .dataset-stat b { color:var(--cyan); display:block; font-size:2rem; letter-spacing:-.06em; }
+    .dataset-stat span { color:#c6d4ea; font-size:.82rem; }
+    .citation { background:#0f1e39; border-radius:10px; color:#d7e4f7; font:400 .83rem/1.65 "DM Mono", monospace; overflow:auto; padding:1.3rem; }
+    footer.footer { background:#f5f8fc; color:#667b97; font-size:.85rem; padding:2.5rem 1.5rem; }
+    @media (max-width:768px) { .hero-body { padding:4.6rem 1.5rem; } .arrow { display:none; } .dataset-stat { border-left:0; border-top:1px solid rgba(255,255,255,.2); padding:1.1rem 0; } .dataset-stat:first-child { border-top:0; } }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero refm-hero">
+      <div class="hero-body">
+        <div class="container is-max-desktop has-text-centered">
+          <p class="project-mark">Computer Animation · Motion Retargeting</p>
+          <h1 class="title publication-title">ReFM</h1>
+          <p class="hero-subtitle">Retargeting with <strong>Energy Flow</strong> and <strong>Motion Semantics</strong></p>
+          <p class="hero-subtitle is-size-5">A source-mesh-agnostic framework that produces semantically faithful, penetration-aware, temporally smooth character motion.</p>
+          <div class="buttons is-centered mt-5">
+            <a class="button is-refm is-rounded" href="#method"><span class="icon"><i class="fas fa-diagram-project"></i></span><span>Explore the method</span></a>
+            <a class="button is-ghost-light is-rounded" href="#results"><span class="icon"><i class="fas fa-chart-line"></i></span><span>View results</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container is-max-desktop">
+        <div class="media-placeholder">
+          <span class="icon"><i class="fas fa-film"></i></span>
+          <strong>Teaser visualization coming soon</strong>
+          <p class="mt-2">Replace this area with a project video or an animated qualitative comparison.</p>
+        </div>
+      </div>
+    </section>
+
+<section class="section pt-2">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <p class="eyebrow">Overview</p>
+        <h2 class="section-title">Retargeting should refine, not regress.</h2>
+        <p class="abstract">
+          ReFM reformulates motion retargeting as a progressive refinement process inspired by how animators work: starting from an initial retargeted motion, it iteratively corrects target-specific artifacts rather than directly regressing a final motion in one shot. Throughout refinement, preserving the semantic intent of the source motion remains the primary objective. A cross-character semantic encoder provides explicit semantic guidance, while target-aware physical and temporal constraints reduce self-penetration and motion artifacts with minimal modification to the initialization. ReFM requires only the source motion and skeleton together with the target skeleton and mesh, without requiring a source mesh or ground-truth target motion.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <section class="section">
+      <div class="container is-max-desktop">
+        <div class="columns is-variable is-8">
+          <div class="column is-5">
+            <p class="eyebrow">Contributions</p>
+            <h2 class="section-title">Built for practical character transfer.</h2>
+          </div>
+          <div class="column">
+            <div class="contribution"><span class="contribution-number">01</span><h3 class="title is-5 mt-2 mb-2">Source-mesh agnostic</h3><p>Inference needs source motion and skeleton plus the target skeleton and mesh—without source geometry or target ground truth.</p></div>
+            <div class="contribution"><span class="contribution-number">02</span><h3 class="title is-5 mt-2 mb-2">Semantics-aware</h3><p>A frozen contrastive graph-transformer encoder for preserving character-invariant motion semantics.</p></div>
+            <div class="contribution"><span class="contribution-number">03</span><h3 class="title is-5 mt-2 mb-2">Energy-based Refinement</h3><p>Rather than generating from a one-step regression, ReFM refines a coarse retargeted motion progressively under the energy-guided trajectory, pushing the data to the low-energy domain.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="method" class="section pipeline">
+      <div class="container is-max-desktop">
+        <div class="has-text-centered mb-6">
+          <p class="eyebrow">Method</p>
+          <h2 class="section-title">From a motion copy to a physically cleaner transfer</h2>
+          <p>Three complementary stages deliver geometry-aware motion while retaining its original intent.</p>
+        </div>
+        <div class="columns is-vcentered">
+          <div class="column"><div class="stage"><div class="stage-index">01</div><h3>Motion Canonicalizer</h3><p>Analytically removes global yaw to normalize input motion without learned parameters.</p></div></div>
+          <div class="column is-narrow arrow"><i class="fas fa-arrow-right"></i></div>
+          <div class="column"><div class="stage"><div class="stage-index">02</div><h3>Semantic Motion Encoder</h3><p>Maps motion to a 128-dimensional, character-invariant representation using contrastive learning.</p></div></div>
+          <div class="column is-narrow arrow"><i class="fas fa-arrow-right"></i></div>
+          <div class="column"><div class="stage"><div class="stage-index">03</div><h3>Energy-Guided Flow</h3><p>Refines the copy retarget by descending penetration, semantic, and temporal energies.</p></div></div>
+        </div>
+        <img
+           src="static/images/Main.png"
+           alt="Overview of the ReFM pipeline"
+           style="width: 100%; border-radius: 12px; display: block;"
+        />
+      </div>
+    </section>
+
+    <section id="results" class="section">
+      <div class="container is-max-desktop">
+        <div class="has-text-centered mb-6">
+          <p class="eyebrow">Evaluation</p>
+          <h2 class="section-title">Leading learning-based results on 308 canonicalized motion pairs</h2>
+          <p>Mixamo GT benchmark in the ReFM-native, height-normalized 65-joint space.</p>
+        </div>
+        <div class="columns is-variable is-4">
+          <div class="column"><article class="card results-card"><div class="card-content"><p class="metric">0.129</p><p class="metric-label">Penetration ↓</p><p class="result-note mt-3">Best penetration among learning-based retargeting methods.</p></div></article></div>
+          <div class="column"><article class="card results-card"><div class="card-content"><p class="metric">0.145</p><p class="metric-label">MSE ↓</p><p class="result-note mt-3">Best motion reconstruction error among learning-based methods.</p></div></article></div>
+          <div class="column"><article class="card results-card"><div class="card-content"><p class="metric">0.998</p><p class="metric-label">Semantic similarity ↑</p><p class="result-note mt-3">Best semantic similarity, tied with STaR, among learning-based methods.</p></div></article></div>
+        </div>
+        <div class="table-wrap mt-6">
+          <table class="table is-fullwidth is-hoverable">
+            <thead><tr><th>Method</th><th>Pen ↓</th><th>Sem<sub>sim</sub> ↑</th><th>Curv ↓</th><th>MSE ↓</th></tr></thead>
+            <tbody>
+              <tr><td colspan="5"><em>Reference motions</em></td></tr>
+              <tr><td>Ground truth</td><td>0.140</td><td>—</td><td>0.675</td><td>—</td></tr>
+              <tr><td>Naive copy <span class="tag method-tag">baseline</span></td><td>0.139</td><td>0.999</td><td>0.657</td><td>0.131</td></tr>
+              <tr><td>HumanIK</td><td>0.139</td><td>0.999</td><td>0.657</td><td>0.130</td></tr>
+              <tr><td colspan="5"><em>Skinned retargeting methods</em></td></tr>
+              <tr><td>STaR</td><td>0.135</td><td><strong>0.998</strong></td><td><strong>0.705</strong></td><td>0.147</td></tr>
+              <tr><td>MeshRet</td><td>0.135</td><td>0.980</td><td>0.710</td><td>0.166</td></tr>
+              <tr><td colspan="5"><em>Skin-agnostic retargeting methods</em></td></tr>
+              <tr><td>SAN</td><td>0.134</td><td>0.953</td><td>1.494</td><td>0.211</td></tr>
+              <tr><td colspan="5"><em>Ours: skin-agnostic refinement</em></td></tr>
+              <tr class="refm-row"><td>ReFM-copy</td><td><strong>0.129</strong></td><td>0.996</td><td>0.729</td><td><strong>0.145</strong></td></tr>
+              <tr class="refm-row"><td>ReFM-HumanIK</td><td><strong>0.129</strong></td><td><strong>0.998</strong></td><td>0.718</td><td>0.146</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="is-size-7 has-text-grey">Pen: self-penetration; Sem<sub>sim</sub>: semantic similarity; Curv: temporal curvature; MSE: motion reconstruction error. Lower is better for Pen, Curv, and MSE; higher is better for Sem<sub>sim</sub>. Bold marks the best result among learning-based retargeting methods.</p>
+      </div>
+    </section>
+
+    <section class="section dataset-strip">
+      <div class="container is-max-desktop">
+        <p class="eyebrow">Training data</p>
+        <h2 class="section-title">A shared 65-joint motion space</h2>
+        <div class="columns mt-5">
+          <div class="column dataset-stat"><b>113</b><span>characters across synthetic and real scans</span></div>
+          <div class="column dataset-stat"><b>11,973</b><span>motion clips for pretraining and energy-flow learning</span></div>
+          <div class="column dataset-stat"><b>65</b><span>joints: body, fingers, and root</span></div>
+          <div class="column dataset-stat"><b>308</b><span>canonicalized GT evaluation pairs</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container is-max-desktop">
+        <div class="columns is-variable is-8 is-vcentered">
+          <div class="column">
+            <p class="eyebrow">Qualitative results</p>
+            <h2 class="section-title">Visual comparisons coming soon</h2>
+            <p>Source, copy initialization, baseline methods, and ReFM refinements will appear here once visualization examples are ready.</p>
+          </div>
+          <div class="column">
+            <div class="media-placeholder dark">
+              <span class="icon"><i class="fas fa-images"></i></span>
+              <strong>Results gallery placeholder</strong>
+              <p class="mt-2">Add side-by-side images or videos here.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section is-light">
+      <div class="container is-max-desktop">
+        <p class="eyebrow">Citation</p>
+        <h2 class="section-title">ReFM citation coming soon</h2>
+        <p class="mb-4">A ReFM paper and public project links will be added when available. The current implementation builds on STaR.</p>
+        <div class="citation">@inproceedings{yang2025star,
+  title={STaR: Seamless Spatial-Temporal Aware Motion Retargeting with Penetration and Consistency Constraints},
+  author={Yang, Xiaohang and Wang, Qing and Yang, Jiahao and Slabaugh, Gregory and Yuan, Shanxin},
+  booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision},
+  year={2025}
+}</div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>ReFM project page · Built from the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank" rel="noopener noreferrer">Academic Project Page Template</a>, adapted from <a href="https://nerfies.github.io" target="_blank" rel="noopener noreferrer">Nerfies</a>.</p>
+    </div>
+  </footer>
+</body>
+</html>
