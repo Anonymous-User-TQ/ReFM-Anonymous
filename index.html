@@ -50,6 +50,8 @@
     .stage-index { align-items:center; background:#dffaf6; border-radius:50%; color:#087b70; display:flex; font:500 .76rem "DM Mono", monospace; height:32px; justify-content:center; margin-bottom:1rem; width:32px; }
     .stage h3 { font-size:1.1rem; font-weight:700; margin-bottom:.55rem; }
     .arrow { color:#78a0d6; font-size:1.4rem; padding-top:4.5rem; text-align:center; }
+    .arrow img { height:1.4rem; opacity:.8; vertical-align:middle; width:1.4rem; }
+    .gallery-nav img { filter:brightness(0) invert(1); height:18px; width:18px; }
     .results-card { border:1px solid var(--line); border-radius:12px; box-shadow:none; overflow:hidden; }
     .results-card .card-content { padding:1.5rem; }
     .metric { color:#276ef1; font-size:2rem; font-weight:800; letter-spacing:-.06em; }
@@ -158,9 +160,9 @@
         </div>
         <div class="columns is-vcentered">
           <div class="column"><div class="stage"><div class="stage-index">01</div><h3>Motion Canonicalizer</h3><p>Analytically removes global yaw to normalize input motion without learned parameters.</p></div></div>
-          <div class="column is-narrow arrow"><i class="fas fa-arrow-right"></i></div>
+          <div class="column is-narrow arrow"><img src="static/images/icons/right-arrow.png" alt="leads to"></div>
           <div class="column"><div class="stage"><div class="stage-index">02</div><h3>Semantic Motion Encoder</h3><p>Maps motion to a 128-dimensional, character-invariant representation using contrastive learning.</p></div></div>
-          <div class="column is-narrow arrow"><i class="fas fa-arrow-right"></i></div>
+          <div class="column is-narrow arrow"><img src="static/images/icons/right-arrow.png" alt="leads to"></div>
           <div class="column"><div class="stage"><div class="stage-index">03</div><h3>Energy-Guided Flow</h3><p>Refines the copy retarget by descending penetration, semantic, and temporal energies.</p></div></div>
         </div>
         <img
@@ -232,8 +234,8 @@
             <div class="gallery-track" id="gallery-track">
               <!-- Slides injected by JS from GALLERY_ITEMS -->
             </div>
-            <button class="gallery-nav prev" id="gallery-prev" aria-label="Previous image"><i class="fas fa-chevron-left"></i></button>
-            <button class="gallery-nav next" id="gallery-next" aria-label="Next image"><i class="fas fa-chevron-right"></i></button>
+            <button class="gallery-nav prev" id="gallery-prev" aria-label="Previous image"><img src="static/images/icons/left-arrow.png" alt="Previous"></button>
+            <button class="gallery-nav next" id="gallery-next" aria-label="Next image"><img src="static/images/icons/right-arrow.png" alt="Next"></button>
             <div class="gallery-counter" id="gallery-counter">1 / 9</div>
           </div>
           <p class="gallery-caption" id="gallery-caption"></p>
