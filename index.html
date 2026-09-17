@@ -239,7 +239,7 @@
             </div>
             <button class="gallery-nav prev" id="gallery-prev" aria-label="Previous image"><img src="static/images/icons/left-arrow.png" alt="Previous"></button>
             <button class="gallery-nav next" id="gallery-next" aria-label="Next image"><img src="static/images/icons/right-arrow.png" alt="Next"></button>
-            <div class="gallery-counter" id="gallery-counter">1 / 9</div>
+            <div class="gallery-counter" id="gallery-counter">1 / 11</div>
           </div>
           <p class="gallery-caption" id="gallery-caption"></p>
           <div class="gallery-dots" id="gallery-dots"></div>
@@ -270,12 +270,14 @@
 
   <script>
     var GALLERY_ITEMS = [
-      { src: 'static/images/gallery/BJC-F1.jpg', alt: 'Body Jab Cross, SportyGranny to Mousey, frame 1', caption: 'Body Jab Cross — SportyGranny to Mousey — Frame 1. Full-character comparison across Source, Ground Truth, Copy, HumanIK, MeshRet, SAN, STaR, ReFM-Copy, and ReFM-HumanIK.' },
+      { src: 'static/images/gallery/BJC-F1.jpg', alt: 'Body Jab Cross, SportyGranny to Mousey, frame 1', caption: 'Body Jab Cross — SportyGranny to Mousey — Frame 1. Full-character comparison across Source, Ground Truth, Copy, HumanIK, MeshRet, SAN, STaR, R2ET, and ReFM-HumanIK.' },
       { src: 'static/images/gallery/BJC-F1-Zoom.jpg', alt: 'Body Jab Cross, SportyGranny to Mousey, frame 1, zoomed in', caption: 'Body Jab Cross — SportyGranny to Mousey — Frame 1 — Zoom in. Enlarged view of the hand-to-torso region, exposing local self-penetration differences.' },
       { src: 'static/images/gallery/BJC-F21.jpg', alt: 'Body Jab Cross, SportyGranny to Mousey, frame 21', caption: 'Body Jab Cross — SportyGranny to Mousey — Frame 21. Full-character comparison at a later frame in the sequence.' },
       { src: 'static/images/gallery/BJC-F21-Zoom.jpg', alt: 'Body Jab Cross, SportyGranny to Mousey, frame 21, zoomed in', caption: 'Body Jab Cross — SportyGranny to Mousey — Frame 21 — Zoom in. Enlarged view highlighting geometric conflicts around the arms and torso.' },
-      { src: 'static/images/gallery/Dribble-F1.jpg', alt: 'Dribble, TheBoss to Aj, frame 3', caption: 'Dribble — TheBoss to Aj — Frame 3. Full-character comparison across all baselines and ReFM variants.' },
+      { src: 'static/images/gallery/Dribble-F3.jpg', alt: 'Dribble, TheBoss to Aj, frame 3', caption: 'Dribble — TheBoss to Aj — Frame 3. Full-character comparison across Source, Ground Truth, Copy, HumanIK, MeshRet, SAN, STaR, R2ET, and ReFM-HumanIK.' },
       { src: 'static/images/gallery/Dribble-F3-Zoom.jpg', alt: 'Dribble, TheBoss to Aj, frame 3, zoomed in', caption: 'Dribble — TheBoss to Aj — Frame 3 — Zoom in. Close-up on the arm–torso interaction where mismatched body proportions can cause self-intersection.' },
+      { src: 'static/images/gallery/Dancing-F32.jpg', alt: 'Dancing, TheBoss to Aj, frame 32', caption: 'Dancing — TheBoss to Aj — Frame 32. Full-character comparison across Source, Ground Truth, Copy, HumanIK, MeshRet, SAN, STaR, R2ET, and ReFM-HumanIK.' },
+      { src: 'static/images/gallery/Dancing-F32-Zoom.jpg', alt: 'Dancing, TheBoss to Aj, frame 32, zoomed in', caption: 'Dancing — TheBoss to Aj — Frame 32 — Zoom in. Close-up on the hand–leg interaction where mismatched body proportions can cause self-intersection.' },
       { src: 'static/images/gallery/ScanRet-1.jpg', alt: 'ScanRet sequence, JiangRuiSen to WuJie', caption: 'ScanRet — QY_0413_JiangRuiSen_007 to QY_0630_WuJie_030. Temporal comparison of Ground Truth, Copy, HumanIK, ReFM-copy, and ReFM-HumanIK on a real-human motion sequence.' },
       { src: 'static/images/gallery/ScanRet-2.jpg', alt: 'ScanRet sequence, WuJie to XiaDian', caption: 'ScanRet — QY_0630_WuJie_030 to QY_0701_XiaDian_037. Temporal comparison of Ground Truth, Copy, HumanIK, ReFM-copy, and ReFM-HumanIK.' },
       { src: 'static/images/gallery/ScanRet-3.jpg', alt: 'ScanRet sequence, DaiQuanWu to ZhangHaoXuan', caption: 'ScanRet — QY_0413_DaiQuanWu_008 to QY_0701_ZhangHaoXuan_036. Frames 1–56, sampled every 5 frames, across Ground Truth, Copy, HumanIK, and both ReFM-refined variants.' }
