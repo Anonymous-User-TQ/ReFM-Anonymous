@@ -190,35 +190,35 @@
       <div class="container is-max-desktop">
         <div class="has-text-centered mb-6">
           <p class="eyebrow">Evaluation</p>
-          <h2 class="section-title">Leading learning-based results on 308 canonicalized motion pairs</h2>
-          <p>Mixamo GT benchmark in the ReFM-native, height-normalized 65-joint space.</p>
+          <h2 class="section-title">Leading results on the 222-pair Mixamo test set</h2>
+          <p>Unified 65-joint evaluation protocol; Pen and Sem<sub>sim</sub> are the primary metrics, Curv and MSE are auxiliary.</p>
         </div>
         <div class="columns is-variable is-4">
-          <div class="column"><article class="card results-card"><div class="card-content"><p class="metric">0.129</p><p class="metric-label">Penetration ↓</p><p class="result-note mt-3">Best penetration among learning-based retargeting methods.</p></div></article></div>
-          <div class="column"><article class="card results-card"><div class="card-content"><p class="metric">0.145</p><p class="metric-label">MSE ↓</p><p class="result-note mt-3">Best motion reconstruction error among learning-based methods.</p></div></article></div>
-          <div class="column"><article class="card results-card"><div class="card-content"><p class="metric">0.998</p><p class="metric-label">Semantic similarity ↑</p><p class="result-note mt-3">Best semantic similarity, tied with STaR, among learning-based methods.</p></div></article></div>
+          <div class="column"><article class="card results-card"><div class="card-content"><p class="metric">0.117</p><p class="metric-label">Penetration ↓</p><p class="result-note mt-3">Lowest self-penetration among all compared methods, a ~16–17% relative reduction over naive copy / HumanIK.</p></div></article></div>
+          <div class="column"><article class="card results-card"><div class="card-content"><p class="metric">0.998</p><p class="metric-label">Semantic similarity ↑</p><p class="result-note mt-3">Best semantic similarity for ReFM-Copy, tied with STaR and R2ET, among learning-based methods.</p></div></article></div>
+          <div class="column"><article class="card results-card"><div class="card-content"><p class="metric">2.13</p><p class="metric-label">User-study avg. rank ↓</p><p class="result-note mt-3">ReFM-HumanIK ranks best overall across all three criteria in a 20-participant user study.</p></div></article></div>
         </div>
         <div class="table-wrap mt-6">
           <table class="table is-fullwidth is-hoverable">
             <thead><tr><th>Method</th><th>Pen ↓</th><th>Sem<sub>sim</sub> ↑</th><th>Curv ↓</th><th>MSE ↓</th></tr></thead>
             <tbody>
               <tr><td colspan="5"><em>Reference motions</em></td></tr>
-              <tr><td>Ground truth</td><td>0.140</td><td>—</td><td>0.675</td><td>—</td></tr>
-              <tr><td>Naive copy <span class="tag method-tag">baseline</span></td><td>0.139</td><td>—</td><td>0.657</td><td>0.131</td></tr>
-              <tr><td>HumanIK</td><td>0.139</td><td>—</td><td>0.657</td><td>0.130</td></tr>
+              <tr><td>Ground truth</td><td>0.141</td><td>—</td><td>0.654</td><td>—</td></tr>
+              <tr><td>Naive copy <span class="tag method-tag">baseline</span></td><td>0.140</td><td>—</td><td>0.657</td><td>0.051</td></tr>
+              <tr><td>HumanIK</td><td>0.141</td><td>—</td><td>0.657</td><td>0.049</td></tr>
               <tr><td colspan="5"><em>Skinned retargeting methods</em></td></tr>
-              <tr><td>STaR</td><td>0.135</td><td><strong>0.998</strong></td><td><strong>0.705</strong></td><td>0.147</td></tr>
-              <tr><td>MeshRet</td><td>0.135</td><td>0.980</td><td>0.710</td><td>0.166</td></tr>
+              <tr><td>STaR</td><td>0.137</td><td><strong>0.998</strong></td><td><strong>0.702</strong></td><td><strong>0.074</strong></td></tr>
+              <tr><td>MeshRet</td><td>0.135</td><td>0.977</td><td>0.712</td><td>0.102</td></tr>
               <tr><td colspan="5"><em>Skin-agnostic retargeting methods</em></td></tr>
-              <tr><td>SAN</td><td>0.134</td><td>0.953</td><td>1.494</td><td>0.211</td></tr>
-              <tr><td>R2ET</td><td>0.134</td><td>0.996</td><td>0.852</td><td>0.152</td></tr>
+              <tr><td>SAN</td><td>0.137</td><td>0.955</td><td>1.497</td><td>0.161</td></tr>
+              <tr><td>R2ET</td><td>0.136</td><td><strong>0.998</strong></td><td>0.854</td><td>0.082</td></tr>
               <tr><td colspan="5"><em>Ours: skin-agnostic refinement</em></td></tr>
-              <tr class="refm-row"><td>ReFM-copy</td><td><strong>0.129</strong></td><td>0.996</td><td>0.732</td><td><strong>0.145</strong></td></tr>
-              <tr class="refm-row"><td>ReFM-HumanIK</td><td><strong>0.129</strong></td><td><strong>0.998</strong></td><td>0.718</td><td>0.146</td></tr>
+              <tr class="refm-row"><td>ReFM-copy</td><td><strong>0.117</strong></td><td><strong>0.998</strong></td><td>0.772</td><td>0.086</td></tr>
+              <tr class="refm-row"><td>ReFM-HumanIK</td><td><strong>0.117</strong></td><td>0.996</td><td>0.772</td><td>0.091</td></tr>
             </tbody>
           </table>
         </div>
-        <p class="is-size-7 has-text-grey">Pen: self-penetration; Sem<sub>sim</sub>: semantic similarity; Curv: temporal curvature; MSE: motion reconstruction error. Lower is better for Pen, Curv, and MSE; higher is better for Sem<sub>sim</sub>. Bold marks the best result among learning-based retargeting methods. Sem<sub>sim</sub> is omitted for reference motions (Ground truth, Naive copy, HumanIK), which keep nearly identical rotational quaternions to the source (Sem<sub>sim</sub> → 1) while ignoring other constraints such as physical plausibility.</p>
+        <p class="is-size-7 has-text-grey">Pen: self-penetration; Sem<sub>sim</sub>: semantic similarity; Curv: temporal curvature; MSE: motion reconstruction error. Lower is better for Pen, Curv, and MSE; higher is better for Sem<sub>sim</sub>. Pen and Sem<sub>sim</sub> are the primary metrics for physical plausibility and semantic preservation; Curv and MSE are auxiliary measures (STaR attains the best auxiliary scores, but ReFM leads on both primary metrics). Bold marks the best result among learning-based retargeting methods. Sem<sub>sim</sub> is omitted for reference motions (Ground truth, Naive copy, HumanIK), which largely preserve source-motion semantics by construction but may violate other constraints such as physical plausibility.</p>
       </div>
     </section>
 
@@ -230,7 +230,7 @@
           <div class="column dataset-stat"><b>113</b><span>characters across synthetic and real scans</span></div>
           <div class="column dataset-stat"><b>11,973</b><span>motion clips for pretraining and energy-flow learning</span></div>
           <div class="column dataset-stat"><b>65</b><span>joints: body, fingers, and root</span></div>
-          <div class="column dataset-stat"><b>308</b><span>canonicalized GT evaluation pairs</span></div>
+          <div class="column dataset-stat"><b>222</b><span>Mixamo GT test pairs (11 characters, 91 motions)</span></div>
         </div>
       </div>
     </section>

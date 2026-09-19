@@ -8,7 +8,7 @@ ReFM is a source-mesh-agnostic motion-retargeting framework. Given source motion
 2. encodes character-invariant motion semantics with contrastive learning, and
 3. refines an initial copy retarget using an energy-guided flow that balances self-penetration, semantic preservation, temporal smoothness, and copy fidelity.
 
-On the 308-pair canonicalized Mixamo GT benchmark, ReFM-copy obtains the lowest evaluated penetration score (0.1285) and a 6.60% penetration gain over the copy baseline.
+On the 222-pair Mixamo GT test set, ReFM-copy obtains the lowest evaluated penetration score (0.117) among all compared methods, an approximately 16% relative reduction over the naive-copy baseline.
 
 
 ## Acknowledgment
